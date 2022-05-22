@@ -1,13 +1,7 @@
 import React from "react";
+import { PersonListProps } from "../interface/PersonList.interface";
 
-interface Props {
-  names: {
-    first: string;
-    last: string;
-  }[];
-}
-
-const PersonList: React.FC<Props> = ({ names }) => {
+const PersonList: React.FC<PersonListProps> = ({ names }) => {
   return (
     <div>
       {names.map((name) => (
