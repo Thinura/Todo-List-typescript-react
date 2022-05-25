@@ -1,12 +1,17 @@
 import React from "react";
 import "./App.css";
+import { Private } from "./components/auth/Private";
+import { Profile } from "./components/auth/Profile";
 import { Box } from "./components/Box";
 import Button from "./components/Button";
 import Container from "./components/Container";
 import { Counter } from "./components/Counter";
+import { CounterClass } from "./components/CounterClass";
+import { DomRef } from "./components/DomRef";
 import Greet from "./components/Greet";
 import Heading from "./components/Heading";
 import { Input } from "./components/Input";
+import { MutableRef } from "./components/MutableRef";
 import Oscar from "./components/Oscar";
 import Person from "./components/Person";
 import PersonList from "./components/PersonList";
@@ -70,6 +75,11 @@ const App: React.FC = () => {
         <UserContextProvider>
           <UserLogin />
         </UserContextProvider>
+        <DomRef />
+        <MutableRef />
+        <CounterClass message="The count value is" />
+        <Private isLoggedIn={true} component={Profile} />
+        <Private isLoggedIn={false} component={Profile} />
       </Container>
     </div>
   );
