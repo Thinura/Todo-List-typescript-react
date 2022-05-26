@@ -8,14 +8,20 @@ import Container from "./components/Container";
 import { Counter } from "./components/Counter";
 import { CounterClass } from "./components/CounterClass";
 import { DomRef } from "./components/DomRef";
+import { List } from "./components/generics/List";
 import Greet from "./components/Greet";
 import Heading from "./components/Heading";
+import { CustomButton } from "./components/html/Button";
+import { CustomComponent } from "./components/html/CustomComponent";
 import { Input } from "./components/Input";
 import { MutableRef } from "./components/MutableRef";
 import Oscar from "./components/Oscar";
 import Person from "./components/Person";
 import PersonList from "./components/PersonList";
+import { Text } from "./components/polymorphic/Text";
+import { RandomNumber } from "./components/restriction/RandomNumber";
 import Status from "./components/Status";
+import { Toast } from "./components/templateliterals/Toast";
 import { ThemeContextProvider } from "./components/ThemeContext";
 import { User } from "./components/User";
 import { UserContextProvider } from "./components/UserContext";
@@ -80,6 +86,29 @@ const App: React.FC = () => {
         <CounterClass message="The count value is" />
         <Private isLoggedIn={true} component={Profile} />
         <Private isLoggedIn={false} component={Profile} />
+        <List
+          items={["Batman", "Superman", "Wonder Woman"]}
+          onClick={(item) => console.log(item)}
+        />
+        <List items={[1, 2, 3]} onClick={(item) => console.log(item)} />
+        <RandomNumber value={10} isPositive />
+        <RandomNumber value={-3} isNegative />
+        <RandomNumber value={0} isZero />
+        <Toast position="center" />
+        <Toast position="right-top" />
+        <Toast position="left-top" />
+        <Toast position="right-center" />
+        <CustomButton variant="primary">Primary</CustomButton>
+        <CustomComponent isLoggedIn={true} name={"Thinura"} messageCount={2} />
+        <Text as={"h1"} size={"lg"}>
+          Heading
+        </Text>
+        <Text as={"p"} size={"md"}>
+          Paragraph
+        </Text>
+        <Text as={"label"} size={"sm"} color={"secondary"}>
+          Label
+        </Text>
       </Container>
     </div>
   );
